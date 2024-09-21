@@ -1,0 +1,38 @@
+[global]
+########## CUSTOM ##########
+ENVIRONMENT = "development"
+SECRET_KEY = "@none"
+SUPERUSER_EMAIL = "@none"
+SUPERUSER_PASSWORD = "@none"
+SQLALCHEMY_DATABASE_URI = "@none"
+
+
+[default]
+########## CUSTOM ##########
+PROJECT_NAME = "Abantether Crypto Pseudo App"
+BASE_URL = "/api"
+JWT_ENCODING_ALGORITHM = "HS256"
+PASSWORD_HASHING_SCHEME = "bcrypt"
+ACCESS_TOKEN_EXPIRE_MINUTES = 60              # minutes
+
+
+[production]
+CORS_ALLOWED_ORIGIN_REGEX = '''(?x)^(
+    ^https?://(\w+\.)?company\.com/?$
+)'''
+
+
+[staging]
+CORS_ALLOWED_ORIGIN_REGEX = '''(?x)^(
+    ^https?://(\w+\.)?company\.com/?$
+    |^https?://localhost(:\d+)?/?$
+    |^https?://127\.0\.0\.1(:\d+)?/?$
+)'''
+
+
+[development]
+CORS_ALLOWED_ORIGIN_REGEX = '''(?x)^(
+    ^https?://(\w+\.)?company\.com/?$
+    |^https?://localhost(:\d+)?/?$
+    |^https?://127\.0\.0\.1(:\d+)?/?$
+)'''
