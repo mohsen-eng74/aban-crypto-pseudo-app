@@ -1,0 +1,32 @@
+{
+    "workbench.tree.indent": 18,
+    "editor.rulers": [
+        88
+    ],
+    "ruff.enable": true,
+    "ruff.format.args": [
+        "--config=${workspaceFolder}/pyproject.toml"
+    ],
+    "ruff.lint.run": "onSave",
+    "ruff.lint.args": [
+        "--config=${workspaceFolder}/pyproject.toml"
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        },
+    },
+    // https://stackoverflow.com/a/45637716
+    "terminal.integrated.env.linux": {
+        "ENVIRONMENT": "development"
+    },
+    "terminal.integrated.env.osx": {
+        "ENVIRONMENT": "development"
+    },
+    "terminal.integrated.env.windows": {
+        "ENVIRONMENT": "development"
+    },
+}
