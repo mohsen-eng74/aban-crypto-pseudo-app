@@ -1,0 +1,108 @@
+[tool.poetry]
+name = "aban-crypto-pseudo-app"
+version = "0.1.0"
+description = "Abantether crypto pseudo app"
+authors = ["Mohsen Rahmati Yami <mohsen.eng74@gmail.com>"]
+license = "Proprietary"
+repository = "https://github.com/mohsen-eng74/aban-crypto-pseudo-app"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+dynaconf = "^3"
+fastapi = { version = "~0.115", extras = ["all"] }
+passlib = "^1"
+pyjwt = "^2"
+sqlalchemy = "^2"
+sqlmodel = "~0.0.22"
+
+[tool.poetry.group.dev.dependencies]
+commitizen = "^3"
+
+[tool.poetry.group.lint.dependencies]
+mypy = "^1"
+ruff = "^0"
+
+[tool.poetry.group.local.dependencies]
+jupyterlab = "^4"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8"
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-ra --verbose --doctest-modules"
+doctest_optionflags = "NORMALIZE_WHITESPACE"
+testpaths = ["tests"]
+
+[tool.ruff]
+fix = true
+indent-width = 4
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+unfixable = []
+select = [
+    # pyflakes
+    "F",
+    # pycodestyle
+    "E",
+    "W",
+    # mccabe
+    "C90",
+    # isort
+    "I",
+    # pyupgrade
+    "UP",
+    # flake8
+    "ANN",   # annotations
+    "ASYNC", # async
+    "S",     # bandit
+    "FBT",   # boolean-trap
+    "B",     # bugbear
+    "A",     # builtins
+    "C4",    # comprehensions
+    "DJ",    # django
+    "G",     # logging-format
+    "PT",    # pytest-style
+    "Q",     # quotes
+    "RET",   # return
+    "SIM",   # simplify
+    "TCH",   # type-checking
+    "INT",   # gettext
+    "PTH",   # pathlib
+    # eradicate
+    "ERA",
+    # pandas
+    "PD",
+    # pylint
+    "PL",
+    # perflint
+    "PERF",
+    # refurb
+    "FURB",
+    # ruff
+    "RUF",
+]
+extend-ignore = ["ANN401", "TCH001", "TCH002", "TCH003"]
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "v$version"
+version_files = [
+    "pyproject.toml:version",
+    "src/__init__.py:__version__",
+]
+major_version_zero = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
