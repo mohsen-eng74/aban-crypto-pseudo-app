@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aban-crypto-pseudo-app"
-version = "0.1.0"
+version = "0.2.0"
 description = "Abantether crypto pseudo app"
 authors = ["Mohsen Rahmati Yami <mohsen.eng74@gmail.com>"]
 license = "Proprietary"
@@ -95,7 +95,7 @@ required-imports = ["from __future__ import annotations"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.1.0"
+version = "0.2.0"
 tag_format = "v$version"
 version_files = [
     "pyproject.toml:version",

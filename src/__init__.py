@@ -5,7 +5,7 @@ Abantether crypto pseudo app
 from __future__ import annotations
 
 __name__ = "aban-crypto-pseudo-app"
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __description__ = "Abantether crypto pseudo app"
 __author__ = "Mohsen Rahmati Yami <mohsen.eng74@gmail.com>"
 __license__ = "Proprietary"
