@@ -1,0 +1,33 @@
+x-image: &image abantether/crypto:v0.1.0
+x-networks:
+  &networks
+  - net
+x-volumes:
+  &volumes
+  - ./.secrets.toml:/project/.secrets.toml
+
+version: "3.8"
+services:
+  app:
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - ENVIRONMENT=staging
+      - SERVER_ASGI_APP=asgi:app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: lean
+    image: *image
+    container_name: crypto_app
+    command: [ "/project/docker/bootstrap.sh", "app-uvicorn" ]
+    restart: unless-stopped
+    networks: *networks
+    volumes: *volumes
+    ports:
+      - 8000:8000
+
+networks:
+  net:
+    name: crypto_net
+    external: false
